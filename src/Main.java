@@ -350,4 +350,83 @@ public class Main {
 }
  */
 
+import lab2.Circle;
+import lab2.Rectangle;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Шаг 4: Считать координаты центра и радиус с консоли
+        System.out.println("Coord. of the centers of circle(x, y): ");
+        double xCoordinate = scanner.nextDouble();
+        double yCoordinate = scanner.nextDouble();
+        System.out.println("Radius: ");
+        double radius = scanner.nextDouble();
+
+        // Шаг 5: Создать объект myCircle класса Circle
+        Circle myCircle = new Circle(xCoordinate, yCoordinate, radius);
+
+        // Шаг 6: Вывести объект myCircle в консоль
+        System.out.println(myCircle);
+
+        // Шаги 7-9: Вывести площадь и длину окружности круга
+        System.out.println("Area: " + myCircle.getArea());
+        System.out.println("Length: " + myCircle.getCircumference());
+
+        // Шаг 11: Считать координаты центра и радиус с консоли для второго круга
+        System.out.println("Coord. of the centers of circle(x, y):");
+        double xCoordinate2 = scanner.nextDouble();
+        double yCoordinate2 = scanner.nextDouble();
+        System.out.println("Radius:");
+        double radius2 = scanner.nextDouble();
+
+        // Создать объект secondCircle класса Circle
+        Circle secondCircle = new Circle(xCoordinate2, yCoordinate2, radius2);
+
+        // Вывести объект secondCircle в консоль
+        System.out.println(secondCircle);
+        System.out.println("Area: " + secondCircle.getArea());
+        System.out.println("Length: " + secondCircle.getCircumference());
+
+        // Шаг 12: Вывести расстояние от центра myCircle до secondCircle
+        double distance = myCircle.getDistanceTo(secondCircle);
+        System.out.println("Dist between centers of circles: " + distance);
+
+        // Считывание координат для первого прямоугольника
+        System.out.println("Enter coord. left top and right bottom points of rect(x1 y1 x2 y2): ");
+        double rx1 = scanner.nextDouble();
+        double ry1 = scanner.nextDouble();
+        double rx2 = scanner.nextDouble();
+        double ry2 = scanner.nextDouble();
+
+        Rectangle firstRectangle = new Rectangle(rx1, ry1, rx2, ry2);
+        System.out.println(firstRectangle);
+        System.out.println("Area: " + firstRectangle.getArea());
+        System.out.println("Perimeter: " + firstRectangle.getPerimeter());
+
+        // координаты для второго прямоуголь
+        System.out.println("Enter coord. left top and right bottom points of rect(x1 y1 x2 y2):");
+        double rx3 = scanner.nextDouble();
+        double ry3 = scanner.nextDouble();
+        double rx4 = scanner.nextDouble();
+        double ry4 = scanner.nextDouble();
+
+        Rectangle secondRectangle = new Rectangle(rx3, ry3, rx4, ry4);
+        System.out.println(secondRectangle);
+        System.out.println("Area: " + secondRectangle.getArea());
+        System.out.println("Perimeter: " + secondRectangle.getPerimeter());
+
+        // расстояния между центрами прямоугол
+        double rectangleDistance = firstRectangle.getDistanceToTheCenterOf(secondRectangle);
+        System.out.println("Dist between centers of two rect: " + rectangleDistance);
+
+        scanner.close();
+
+        scanner.close();
+    }
+}
+
 
