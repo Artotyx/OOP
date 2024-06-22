@@ -351,81 +351,148 @@ public class Main {
  */
 
 import lab2.Circle;
+import lab2.MyShape;
 import lab2.Rectangle;
+import lab2.Square;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        HashMap<MyShape, String> myHashMap = new HashMap<>();
+        Circle myCircle = new Circle(0, 0, 1);
+        Rectangle myRectangle = new Rectangle(0, 1, 1, 0);
+        Square mySquare = new Square(0, 1, 1);
 
-        // Шаг 4: Считать координаты центра и радиус с консоли
-        System.out.println("Coord. of the centers of circle(x, y): ");
-        double xCoordinate = scanner.nextDouble();
-        double yCoordinate = scanner.nextDouble();
-        System.out.println("Radius: ");
-        double radius = scanner.nextDouble();
+        myHashMap.put(myCircle, "CIRCLE");
+        myHashMap.put(myRectangle, "RECTANGLES");
+        myHashMap.put(mySquare, "SQUARES");
 
-        // Шаг 5: Создать объект myCircle класса Circle
-        Circle myCircle = new Circle(xCoordinate, yCoordinate, radius);
+        System.out.println("INITIAL - " + myHashMap.size() + " " + myHashMap.get(myCircle));
 
-        // Шаг 6: Вывести объект myCircle в консоль
-        System.out.println(myCircle);
+        Circle circleWithSameAttributes = new Circle(0, 0, 1);
+        myHashMap.put(circleWithSameAttributes, "SAME CIRCLES");
+        System.out.println("ADDED CIRCLE WITH SAME ATTRIBUTES - " + myHashMap.size() + " " + myHashMap.get(myCircle));
 
-        // Шаги 7-9: Вывести площадь и длину окружности круга
-        System.out.println("Area: " + myCircle.getArea());
-        System.out.println("Length: " + myCircle.getCircumference());
 
-        // Шаг 11: Считать координаты центра и радиус с консоли для второго круга
-        System.out.println("Coord. of the centers of circle(x, y):");
-        double xCoordinate2 = scanner.nextDouble();
-        double yCoordinate2 = scanner.nextDouble();
-        System.out.println("Radius:");
-        double radius2 = scanner.nextDouble();
+//        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.print("Enter xCoordinate for myCircle: ");
+//        int xCoordinate = scanner.nextInt();
+//
+//        System.out.print("Enter yCoordinate for myCircle: ");
+//        int yCoordinate = scanner.nextInt();
+//
+//        System.out.print("Enter radius for myCircle: ");
+//        int radius = scanner.nextInt();
+//
+//        Circle myCircle = new Circle(xCoordinate, yCoordinate, radius);
+//        System.out.println(myCircle);
+//        System.out.println("Area: " + myCircle.getArea());
+//        System.out.println("Circumference: " + myCircle.getCircumference());
+//
+//        System.out.print("Enter xCoordinate for secondCircle: ");
+//        int xCoordinate2 = scanner.nextInt();
+//
+//        System.out.print("Enter yCoordinate for secondCircle: ");
+//        int yCoordinate2 = scanner.nextInt();
+//
+//        System.out.print("Enter radius for secondCircle: ");
+//        int radius2 = scanner.nextInt();
+//
+//        Circle secondCircle = new Circle(xCoordinate2, yCoordinate2, radius2);
+//        double distance = myCircle.getDistanceTo(secondCircle);
+//        System.out.println("Distance to secondCircle: " + distance);
+//        System.out.print("Enter xTopLeftCoordinate for first rectangle: ");
+//        int xTopLeftCoordinate1 = scanner.nextInt();
+//
+//        System.out.print("Enter yTopLeftCoordinate for first rectangle: ");
+//        int yTopLeftCoordinate1 = scanner.nextInt();
+//
+//        System.out.print("Enter xBottomRightCoordinate for first rectangle: ");
+//        int xBottomRightCoordinate1 = scanner.nextInt();
+//
+//        System.out.print("Enter yBottomRightCoordinate for first rectangle: ");
+//        int yBottomRightCoordinate1 = scanner.nextInt();
+//
+//        Rectangle rectangle1 = new Rectangle(xTopLeftCoordinate1, yTopLeftCoordinate1, xBottomRightCoordinate1, yBottomRightCoordinate1);
+//        System.out.println(rectangle1);
+//        System.out.println("Area: " + rectangle1.getArea());
+//        System.out.println("Perimeter: " + rectangle1.getPerimeter());
+//
+//        System.out.print("Enter xTopLeftCoordinate for second rectangle: ");
+//        int xTopLeftCoordinate2 = scanner.nextInt();
+//
+//        System.out.print("Enter yTopLeftCoordinate for second rectangle: ");
+//        int yTopLeftCoordinate2 = scanner.nextInt();
+//
+//        System.out.print("Enter xBottomRightCoordinate for second rectangle: ");
+//        int xBottomRightCoordinate2 = scanner.nextInt();
+//
+//        System.out.print("Enter yBottomRightCoordinate for second rectangle: ");
+//        int yBottomRightCoordinate2 = scanner.nextInt();
+//
+//        Rectangle rectangle2 = new Rectangle(xTopLeftCoordinate2, yTopLeftCoordinate2, xBottomRightCoordinate2, yBottomRightCoordinate2);
+//        double distanceToCenter = rectangle1.getDistanceToTheCenterOf(rectangle2);
+//        System.out.println("Distance to second rectangle: " + distanceToCenter);
+//
+//        // Работа с MyShape
+//        System.out.print("Enter color for MyShape: ");
+//        String initialColor = scanner.next();
+//
+//        System.out.print("Is filled (true/false) for MyShape: ");
+//        boolean filled = scanner.nextBoolean();
+//
+//        MyShape shape = new MyShape(initialColor, filled);
+//        System.out.println(shape);
+//
+//        System.out.print("Enter new color for MyShape: ");
+//        String updatedColor = scanner.next();
+//        shape.setColor(updatedColor);
+//        System.out.println("Updated MyShape: " + shape);
+//        System.out.print("Enter xTopLeftCoordinate for square: ");
+//        int xTopLeftCoordinateSquare = scanner.nextInt();
+//
+//        System.out.print("Enter yTopLeftCoordinate for square: ");
+//        int yTopLeftCoordinateSquare = scanner.nextInt();
+//
+//        System.out.print("Enter sideLength for square: ");
+//        int sideLength = scanner.nextInt();
+//
+//        Square square = new Square(xTopLeftCoordinateSquare, yTopLeftCoordinateSquare, sideLength);
+//        System.out.println(square);
+//        System.out.println("Area: " + square.getArea());
+//        System.out.println("Perimeter: " + square.getPerimeter());
+//        System.out.println("Color: " + square.getColor());
+//        System.out.println("Filled: " + square.isFilled());
+//
+//        System.out.print("Enter new color for square: ");
+//        String newColorSquare = scanner.next();
+//        square.setColor(newColorSquare);
+//        System.out.println("Updated Square: " + square);
 
-        // Создать объект secondCircle класса Circle
-        Circle secondCircle = new Circle(xCoordinate2, yCoordinate2, radius2);
 
-        // Вывести объект secondCircle в консоль
-        System.out.println(secondCircle);
-        System.out.println("Area: " + secondCircle.getArea());
-        System.out.println("Length: " + secondCircle.getCircumference());
 
-        // Шаг 12: Вывести расстояние от центра myCircle до secondCircle
-        double distance = myCircle.getDistanceTo(secondCircle);
-        System.out.println("Dist between centers of circles: " + distance);
 
-        // Считывание координат для первого прямоугольника
-        System.out.println("Enter coord. left top and right bottom points of rect(x1 y1 x2 y2): ");
-        double rx1 = scanner.nextDouble();
-        double ry1 = scanner.nextDouble();
-        double rx2 = scanner.nextDouble();
-        double ry2 = scanner.nextDouble();
 
-        Rectangle firstRectangle = new Rectangle(rx1, ry1, rx2, ry2);
-        System.out.println(firstRectangle);
-        System.out.println("Area: " + firstRectangle.getArea());
-        System.out.println("Perimeter: " + firstRectangle.getPerimeter());
 
-        // координаты для второго прямоуголь
-        System.out.println("Enter coord. left top and right bottom points of rect(x1 y1 x2 y2):");
-        double rx3 = scanner.nextDouble();
-        double ry3 = scanner.nextDouble();
-        double rx4 = scanner.nextDouble();
-        double ry4 = scanner.nextDouble();
 
-        Rectangle secondRectangle = new Rectangle(rx3, ry3, rx4, ry4);
-        System.out.println(secondRectangle);
-        System.out.println("Area: " + secondRectangle.getArea());
-        System.out.println("Perimeter: " + secondRectangle.getPerimeter());
 
-        // расстояния между центрами прямоугол
-        double rectangleDistance = firstRectangle.getDistanceToTheCenterOf(secondRectangle);
-        System.out.println("Dist between centers of two rect: " + rectangleDistance);
+//        System.out.print("Enter xTopLeftCoordinate for square: ");
+//        int xTopLeftCoordinateSquare = scanner.nextInt();
+//
+//        System.out.print("Enter yTopLeftCoordinate for square: ");
+//        int yTopLeftCoordinateSquare = scanner.nextInt();
+//
+//
+//        System.out.print("Enter sideLength ");
+//        int sideLength = scanner.nextInt();
+//        Square square = new Square( xTopLeftCoordinateSquare,yTopLeftCoordinateSquare, sideLength);
+//        System.out.println(square.getPerimeter());
 
-        scanner.close();
 
-        scanner.close();
+
     }
 }
 
